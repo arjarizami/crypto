@@ -5,30 +5,29 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-const DashBoard = () => <h2>DashBoard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
-
+import DashBoard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
 
 class App extends Component {
-    componentDidMount(){
-      this.props.fetchUser();
-    }
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
-    render(){
-        return(
-            <div>
-                <BrowserRouter>
-                    <div>
-                        <Header />
-                        <Route exact path="/" component={Landing} />
-                        <Route exact path="/surveys" component={DashBoard} />
-                        <Route path="/surveys/new" component={SurveyNew} />
-                    </div>
-                </BrowserRouter>
-            </div>
-        );
-    }
-    
-};
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={DashBoard} />
+          <Route path="/surveys/new" component={SurveyNew} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions
+)(App);
