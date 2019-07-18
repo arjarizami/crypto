@@ -22,13 +22,10 @@ class SurveyFormReview extends React.Component {
   }
 
   onChange = value => {
-    console.log(value);
     this.setState({ token: value });
   };
 
   onSubmit(formValues, history) {
-    console.log(this.state.token);
-
     this.props.submitSurvey(formValues, this.state.token, history);
   }
 
