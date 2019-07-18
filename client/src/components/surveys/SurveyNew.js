@@ -2,9 +2,14 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
+import { loadReCaptcha } from 'react-recaptcha-google';
 
 class SurveyNew extends React.Component {
   state = { showFormReview: false };
+
+  componentDidMount() {
+    loadReCaptcha();
+  }
 
   renderContent() {
     if (this.state.showFormReview) {
