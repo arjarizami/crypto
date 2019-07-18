@@ -32,6 +32,8 @@ class SurveyFormReview extends React.Component {
   render() {
     const { onCancel, formValues, history } = this.props;
 
+    const key = process.env.REACT_APP_RECAPTCHA_KEY;
+
     return (
       <div>
         <div className="row valign-wrapper">
@@ -40,10 +42,7 @@ class SurveyFormReview extends React.Component {
             {this.reviewFields()}
           </div>
           <div className="col s4">
-            <ReCaptcha
-              sitekey="6LdnOa4UAAAAAJkj-iFxApVJV6Wg9tzO7nGqpCv5"
-              verifyCallback={this.onChange}
-            />
+            <ReCaptcha sitekey={key} verifyCallback={this.onChange} />
           </div>
         </div>
         <button
