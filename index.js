@@ -4,6 +4,9 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+var Ddos = require('ddos');
+
+var ddos = new Ddos({burst:3, limit:3});
 
 require('./models/User');
 require('./models/Survey');
@@ -15,6 +18,7 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const app = express();
 
+app.use(ddos.express);
 app.use(bodyParser.json());
 app.use(
   cookieSession({
