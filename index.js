@@ -6,7 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 var Ddos = require('ddos');
 
-var ddos = new Ddos({ burst: 3, limit: 3 });
+var ddos = new Ddos({ burst: 10, limit: 10 });
 
 require('./models/User');
 require('./models/Survey');
